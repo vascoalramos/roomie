@@ -1,45 +1,16 @@
-# Roomie
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/38591616/122379565-e3c2c500-cf5e-11eb-8200-321df6858a13.png">
+  
+  <h1><i>Roomie - Renting Platform</i></h1>
+</div>
 
-Projeto Perfil Engenharia de Aplicações
+## 📖 Description
 
-## Low-Fidelity Prototype
+Roomie consists in a web platform where landlords can post their houses, and tenants can search for openings in houses. Each tenant has his evaluation scores that other users can access in order to decide if they want to live with them. Landlords can accept applications or reject them. This repository contains all stages of developoment, from modeling and low-fidelity prototypes, to a fully functional production version.
 
-To access the prototype:
+## 🚀 Deployment
 
--   inspect [prototype folder](prototype) to see its static representation with images
--   interact with the dynamic prototype, [here](https://www.figma.com/proto/QI3glrnfyr5FPTlQFCQNmb/Prototype?node-id=10%3A1356&scaling=min-zoom&page-id=2%3A1302).
-
-## Backend
-
-### Prerequisites
-
-The following software is required to be installed on your system:
-
--   JDK 11+
--   PostgreSQL
-
-### How to Run
-
-#### Create Database and User
-
-```bash
-sudo -u postgres psql
-postgres=# create database roomie;
-postgres=# create user roomie with encrypted password 'passw0rd';
-postgres=# grant all privileges on database roomie to roomie;
-```
-
-#### Run Project
-
-Execute (in IntelliJ) by running `RestApiApplication.java` file.
-
-#### Create DB Schema
-
-Execute endpoint http://localhost:8083/api/admin/create-db.
-
-## Deployment
-
-### How to Run
+### Full dpeloyment (Ansible + GCP + Docker + Docker Swarm)
 
 #### Prerequisites
 
@@ -84,15 +55,26 @@ ansible-galaxy collection install community.docker
         ANSIBLE_CONFIG=ansible.cfg ansible-playbook -i hosts.gcp.yml scale.yml -e "frontend=3 backend=1"
         ```
 
-### Orchestration
+#### Orchestration
 
 The orchestration tool used in this assignment is [Docker Swarm](https://docs.docker.com/get-started/swarm-deploy). This phase of deployment is the result of improving the work described in the [Intermediate Installation section](#intermediate-installation).
 
-### Provisiong
+#### Provisiong
 
 This deployment uses [Ansible](https://www.ansible.com) to automate provisioning and configuration of the application on [Google Cloud Platform](https://cloud.google.com).
 
-## Authors
+### Basic Deployment (Docker + Docker Compose)
+The Docker deployment contains four components in three containers:
+    - Frontend Web Server
+    - Backend App Server
+    - Postgres Database
+
+To run all of this, use ``docker-compose`` on the main directory:
+```bash
+docker-compose up --build -d
+```
+
+## 🤝 Authors
 
 -   **Diogo Ribeiro:** [ribeiropdiogo](https://github.com/ribeiropdiogo)
 -   **José Diogo Monteiro:** [dxmonteiro](https://github.com/DxMonteiro)
@@ -100,6 +82,7 @@ This deployment uses [Ansible](https://www.ansible.com) to automate provisioning
 -   **Rui Mendes:** [ruimendes29](https://github.com/ruimendes29)
 -   **Vasco Ramos:** [vascoalramos](https://vascoalramos.me)
 
-## License
+
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
