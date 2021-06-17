@@ -10,7 +10,7 @@ Roomie consists in a web platform where landlords can post their houses, and ten
 
 ## 🚀 Deployment
 
-### Full dpeloyment (Ansible + GCP + Docker + Docker Swarm)
+### Full deployment (Ansible + GCP + Docker + Docker Swarm)
 
 #### Prerequisites
 
